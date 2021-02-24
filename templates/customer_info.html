@@ -1,0 +1,41 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+<div class="card-body">
+    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+        <table class="table dataTable my-0" id="dataTable">
+            <thead>
+                <tr>
+                    <th>Id.</th>
+                    <th>customer</th>
+                    <th>product Name</th>
+                    <th>product price</th>
+                    <th>Quantity</th>
+                    <th>Total price</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                {% for stu in help %}
+                <tr>
+                    <td>{{ stu.id }}</td>
+                    <td>{{ stu.customer_name }}</td>
+                    <td>{{ stu.product_name }}</td>
+                    <td>{{ stu.productprice }}</td>
+                    <td>{{ stu.quantity }}</td>
+                    <td>{{ stu.total_price }}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+            </table>
+            
+            </div>
+
+            </div>
+            
+            </html>           

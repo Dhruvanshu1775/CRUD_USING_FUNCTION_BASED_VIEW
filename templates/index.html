@@ -1,0 +1,50 @@
+<html>
+    <title>Add order page</title>
+    <div class="col-md-8 offset-md-2">
+    <div class="add">
+        <h1>Adding order</h1>
+        <div class="container">
+            <form method="POST">
+            {% csrf_token %}
+
+              
+                <label for="customer_name">Select customer:</label>
+                <select name="customer_name">
+                {% for customs in custom  %}    
+                <option value="{{ customs.first_name }}">{{ customs.first_name }}</option>  
+                {% endfor %}
+                </select>
+                <br><br>
+            
+             
+                <label>Select product:</label>
+                <select name="product_name">
+                {% for produc in produc  %} 
+                <option value="{{ produc.product_name }}">{{ produc.product_name }}</option> 
+                {% endfor %}
+                </select>
+                <br> 
+                <br> 
+                <label>price is:</label>
+                <select name="productprice">
+                {% for produc in produc  %}
+                <option value="{{ produc.product_price}}">{{ produc.product_price }}</option>  
+                {% endfor %}
+                </select>
+                <br> 
+                <br> 
+                <label> Quantity </label>         
+                <input type="number" name="quantity"/> <br> <br>
+                <br> 
+                <label> Total Price: </label>         
+                <input type="text" id="total_price" name="total_price" value=></a>
+                <input type="submit"> 
+            <br><br>
+            
+            
+        
+    </form>
+    </div>
+    </div>
+    </div>
+</html>
