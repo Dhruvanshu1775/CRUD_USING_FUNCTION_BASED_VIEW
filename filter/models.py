@@ -17,7 +17,7 @@ class customer(models.Model):
 class product(models.Model):
     product_id = models.AutoField(primary_key=True)
     product_name = models.CharField(max_length=50)
-    product_price = models.FloatField()
+    product_price = models.IntegerField()
 
     def __str__(self):
         return self.product_name
@@ -26,7 +26,7 @@ class product(models.Model):
 class order(models.Model):
     customer_name = models.CharField(max_length=20)
     product_name = models.CharField(max_length=20)
-    productprice = models.FloatField()
+    productprice = models.IntegerField()
     quantity = models.IntegerField()
     total_price = models.IntegerField()
     

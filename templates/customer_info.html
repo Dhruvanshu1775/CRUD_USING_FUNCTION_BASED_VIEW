@@ -3,12 +3,14 @@
 
 <!DOCTYPE html>
 <html>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
-<div class="card-body">
-    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
-        <table class="table dataTable my-0" id="dataTable">
-            <thead>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+        margin: 2px;
+        align-items: center;
+      }
+    </style>  
+    <table style="">
                 <tr>
                     <th>Id.</th>
                     <th>customer</th>
@@ -16,10 +18,9 @@
                     <th>product price</th>
                     <th>Quantity</th>
                     <th>Total price</th>
+                    <th>Operations</th>
                 </tr>
-            </thead>
             
-            <tbody>
                 {% for stu in help %}
                 <tr>
                     <td>{{ stu.id }}</td>
@@ -28,14 +29,14 @@
                     <td>{{ stu.productprice }}</td>
                     <td>{{ stu.quantity }}</td>
                     <td>{{ stu.total_price }}</td>
-                    
+                    <td><a href="/update/{{stu.id}}">INSERT</a>
+                        <br><a href="/delete/{{stu.id}}">DELETE</a></td>
                 </tr>
                 {% endfor %}
-            </tbody>
+    
             </table>
             
-            </div>
 
-            </div>
+            
             
             </html>           
