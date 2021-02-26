@@ -29,17 +29,21 @@
                 <br> 
                 <label>price is:</label>
                 <select name="productprice">
+                   
                 {% for produc in produc  %}
-                <option value="{{ produc.product_price}}">{{ produc.product_price }}</option>  
-                {% endfor %}
+                    {% if product_name is product_price %} 
+                        <option value="{{ produc.product_price}}">{{ produc.product_price }}</option>  
+                    {% endif %}
+                {% endfor %}   
                 </select>
                 <br> 
                 <br> 
                 <label> Quantity </label>         
                 <input type="number" name="quantity"/> <br> <br>
-                <br> 
-                <label> Total price </label>         
-                <input type="number" name="total_price"/> <br> <br>
+        
+                
+                <label hidden></label>         
+                <input type="number" name="total_price"/ hidden> 
                 
                 <input type="submit"> 
             <br><br>

@@ -3,6 +3,8 @@ from .models import customer, product, order
 from django.views.generic import UpdateView
 from . import models
 from .forms import orderform
+from rest_framework import generics
+from .serializer import orderserializer
 
 
 
@@ -12,13 +14,12 @@ def add_order(request):
     custom = customer.objects.all()
     produc = product.objects.all()
 
-
     if request.method == 'POST':
         customer_name = request.POST['customer_name']
         product_name = request.POST['product_name']
         productprice = request.POST['productprice']
         quantity = request.POST['quantity']
-        total_price = request.POST['total_price']
+        total_price = int(request.POST['productprice'])*int(request.POST['quantity'])
         created = order(customer_name=customer_name,product_name=product_name,productprice=productprice,quantity=quantity,total_price = total_price)
         created.save()
         return redirect('/')
@@ -53,3 +54,13 @@ def delete(request,id):
     orderty = order.objects.get(id=id)
     orderty.delete() 
     return redirect('/')   
+
+
+class get(generics.ListAPIView):
+    queryset = order.objects.all()
+    serializer_class = orderserializer
+
+
+class post(generics.ListCreateAPIView):
+    queryset = order.objects.all()
+    serializer_class = orderserializer      

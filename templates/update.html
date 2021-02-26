@@ -1,7 +1,9 @@
 <html>
     <form method="POST">{% csrf_token %}
-        name <input type="text" name="customer_name" value="{{ orderty.customer_name }}">
-        product_name <input type="text" name="product_name" value="{{ orderty.product_name }}">
+        name <input type="none" name="customer_name" value="{{ orderty.customer_name }}">
+        <select name="product_name">
+        product_name <option value="{{ orderty.product_name }}">{{ orderty.product_name }}</option>
+        </select>
         productprice <input type="text" name="productprice" value="{{ orderty.productprice }}">
         quantity <input type="text" name="quantity" value="{{ orderty.quantity }}">
         total_price <input type="text" name="total_price" value="{{ orderty.total_price}}">
