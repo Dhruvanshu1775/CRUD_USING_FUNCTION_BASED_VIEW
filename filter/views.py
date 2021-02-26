@@ -41,14 +41,15 @@ def orderdetail(request):
     return render(request,'customer_info.html',context)
 
 def update(request,id):
+    produc = product.objects.all()
     orderty = order.objects.get(id=id)
     if request.method == 'POST':
         form = orderform(request.POST,instance=orderty)
         if form.is_valid():
             form.save()
-            return redirect('/')
+            return redirect('detail')
 
-    return render(request,'update.html',{'orderty':orderty})        
+    return render(request,'update.html',{'orderty':orderty,'produc':produc})        
 
 def delete(request,id):
     orderty = order.objects.get(id=id)
