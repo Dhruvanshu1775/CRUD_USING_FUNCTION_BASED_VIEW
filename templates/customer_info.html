@@ -1,8 +1,17 @@
 
 {% load static %}
+{% for messages in messages %}
+{% if 'insert' in messages.tags  %}   
+<div class="alert alert-primary" role="alert">
+  {{ messages }}
+</div> 
+{% endif %}  
+{% endfor %}
 
 <!DOCTYPE html>
 <html>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>    
 
 <a href="/">Click here to add product</a>
     <style>
@@ -31,8 +40,14 @@
                     <td>{{ stu.productprice }}</td>
                     <td>{{ stu.quantity }}</td>
                     <td>{{ stu.total_price }}</td>
-                    <td><a href="/update/{{stu.id}}">INSERT</a>
-                        <br><a href="/delete/{{stu.id}}">DELETE</a></td>
+                    <td><div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="/update/{{stu.id}}{{stu.customer_name}}"><button type="button" class="btn btn-primary">INSERT</button></a>
+                      </div>
+                    
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <a href="/delete/{{stu.id}}{{stu.customer_name}}"><button type="button" class="btn btn-primary">Delete</button></a>
+                      </div>
+                    </td>       
                 </tr>
                 {% endfor %}
     
