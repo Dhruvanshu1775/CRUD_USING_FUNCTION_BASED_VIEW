@@ -37,13 +37,13 @@
     </div></div></div>
                 {% for stu in help %}
                 <tr>
-                    <td>{{ stu.id }}</td>
-                    <td>{{ stu.customer_name }}</td>
-                    <td>{{ stu.product_name }}</td>
-                    <td>{{ stu.productprice }}</td>
-                    <td>{{ stu.quantity }}</td>
-                    <td>{{ stu.total_price }}</td>
-                    <td><div class="btn-group" role="group" aria-label="Basic example">
+                    <td class="alert alert-success">{{ stu.id }}</td>
+                    <td class="alert alert-success">{{ stu.customer_name }}</td>
+                    <td class="alert alert-success">{{ stu.product_name }}</td>
+                    <td class="alert alert-success">{{ stu.productprice }}</td>
+                    <td class="alert alert-success">{{ stu.quantity }}</td>
+                    <td class="alert alert-success">{{ stu.total_price }}</td>
+                    <td class="alert alert-success"><div class="btn-group" role="group" aria-label="Basic example">
                         <a href="/update/{{stu.id}}{{stu.customer_name}}"><button type="button" class="btn btn-primary">INSERT</button></a>
                       </div>
                     

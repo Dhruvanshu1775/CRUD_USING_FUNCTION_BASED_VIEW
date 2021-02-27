@@ -30,4 +30,4 @@ class order(models.Model):
     quantity = models.IntegerField()
     total_price = models.IntegerField()
     
-    
+
