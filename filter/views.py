@@ -46,8 +46,12 @@ def update(request,id,customer_name):
         form = orderform(request.POST,instance=orderty)
         if form.is_valid():
             form.save()
-            messages.info(request,f'{customer_name} you inserted succesfully',extra_tags='insert')
-            return redirect('detail')
+            if form.has_changed():
+                messages.info(request,f'{customer_name} you inserted succesfully',extra_tags='insert')
+                return redirect('detail')  
+            else:
+                messages.info(request,f'{customer_name} dont do timepass',extra_tags='timepass')
+                return redirect('/')       
             
 
     return render(request,'update.html',{'orderty':orderty,'produc':produc})        
@@ -67,3 +71,6 @@ class get(generics.ListAPIView):
 class post(generics.ListCreateAPIView):
     queryset = order.objects.all()
     serializer_class = orderserializer      
+
+
+

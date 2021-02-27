@@ -20,18 +20,21 @@
         margin: 2px;
         align-items: center;
       }
-    </style>  
+    </style> 
     <table style="">
-                <tr>
-                    <th>Id.</th>
-                    <th>customer</th>
-                    <th>product Name</th>
-                    <th>product price</th>
-                    <th>Quantity</th>
-                    <th>Total price</th>
-                    <th>Operations</th>
+    <div class="container">
+    <div class="row align-items-start">
+    <div class="col"> 
+                <tr >
+                    <th class="alert alert-primary">Id.</th>
+                    <th class="alert alert-primary">customer</th>
+                    <th class="alert alert-primary">product Name</th>
+                    <th class="alert alert-primary">product price</th>
+                    <th class="alert alert-primary">Quantity</th>
+                    <th class="alert alert-primary">Total price</th>
+                    <th class="alert alert-primary">Operations</th>
                 </tr>
-            
+    </div></div></div>
                 {% for stu in help %}
                 <tr>
                     <td>{{ stu.id }}</td>
@@ -49,6 +52,7 @@
                       </div>
                     </td>       
                 </tr>
+            
                 {% endfor %}
     
             </table>

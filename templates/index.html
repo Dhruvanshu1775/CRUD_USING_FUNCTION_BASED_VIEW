@@ -7,6 +7,13 @@
     {% endif %}    
 {% endfor %}
 
+{% for messages in messages %}   
+    {% if 'timepass' in messages.tags %}
+        <div class="alert alert-primary" role="alert">
+        {{ messages }}
+        </div> 
+    {% endif %}    
+{% endfor %}
 
 
 {% for messages in messages %}
@@ -24,13 +31,13 @@
     <title>Add order page</title>
     <div class="col-md-8 offset-md-2">
     <div class="add">
-        <h1>Adding order</h1>
-        <div class="container">
+        <h1>Adding order</h1><br>
+        <div class="mb-3">
+            
             <form method="POST">
             {% csrf_token %}
-
-              
-                <label for="customer_name">Select customer:</label>
+            
+                <label for="customer_name" class="form-label">Select customer:</label>
                 <select name="customer_name">
                 {% for customs in custom  %}    
                 <option value="{{ customs.first_name }}">{{ customs.first_name }}</option>  
@@ -69,7 +76,7 @@
             <br><br>
             
             
-        
+            
     </form>
     </div>
     </div>
