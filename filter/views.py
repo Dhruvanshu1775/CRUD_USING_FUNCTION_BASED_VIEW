@@ -1,12 +1,11 @@
 from django.shortcuts import render,redirect
 from .models import customer, product, order
 from django.views.generic import UpdateView
-from . import models
+
 from .forms import orderform
 from rest_framework import generics
 from .serializer import orderserializer
-
-
+from django.contrib import messages
 
 # Create your views here.
 
@@ -22,8 +21,8 @@ def add_order(request):
         total_price = int(request.POST['productprice'])*int(request.POST['quantity'])
         created = order(customer_name=customer_name,product_name=product_name,productprice=productprice,quantity=quantity,total_price = total_price)
         created.save()
+        messages.info(request,f'{customer_name} your order add succesfully')
         return redirect('/')
-
     else:    
         return render(request,'index.html',{'custom':custom,'produc':produc})
 
